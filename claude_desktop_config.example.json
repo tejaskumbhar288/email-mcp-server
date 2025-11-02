@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "email-alert": {
+      "command": "python",
+      "args": [
+        "/absolute/path/to/your/project/server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "/absolute/path/to/your/project"
+      }
+    }
+  }
+}

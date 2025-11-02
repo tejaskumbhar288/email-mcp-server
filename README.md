@@ -107,7 +107,7 @@ To use this MCP server with Claude Desktop, you need to add it to your Claude De
 
 ### 2. Add MCP Server Configuration
 
-Edit the config file and add:
+Edit the config file and add (see `claude_desktop_config.example.json` for reference):
 
 ```json
 {
@@ -115,17 +115,45 @@ Edit the config file and add:
     "email-alert": {
       "command": "python",
       "args": [
-        "C:\\Users\\tejas\\OneDrive\\Desktop\\Email MCP server\\server.py"
+        "/absolute/path/to/your/project/server.py"
       ],
       "env": {
-        "PYTHONPATH": "C:\\Users\\tejas\\OneDrive\\Desktop\\Email MCP server"
+        "PYTHONPATH": "/absolute/path/to/your/project"
       }
     }
   }
 }
 ```
 
-**Note:** Adjust the path to match your actual project location.
+**Windows Example:**
+```json
+{
+  "mcpServers": {
+    "email-alert": {
+      "command": "C:\\Users\\YourName\\path\\to\\venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\YourName\\path\\to\\Email MCP server\\server.py"
+      ]
+    }
+  }
+}
+```
+
+**Mac/Linux Example:**
+```json
+{
+  "mcpServers": {
+    "email-alert": {
+      "command": "/usr/bin/python3",
+      "args": [
+        "/home/username/Email-MCP-server/server.py"
+      ]
+    }
+  }
+}
+```
+
+**Note:** Replace paths with your actual project location.
 
 ### 3. Restart Claude Desktop
 
@@ -216,6 +244,26 @@ Email MCP server/
 2. **Use App Passwords** - Never use your main Gmail password
 3. **Restrict Access** - Keep your MCP server local and trusted
 4. **Monitor Usage** - Review sent emails periodically
+
+## 📤 Pushing to GitHub
+
+### ✅ Safe to Push:
+- `server.py` - Your MCP server code
+- `email_client.py` - Email operations
+- `test_email.py` - Testing script
+- `requirements.txt` - Dependencies list
+- `README.md` - Documentation
+- `.env.example` - Template (NO real credentials)
+- `claude_desktop_config.example.json` - Config template
+- `.gitignore` - Git ignore rules
+
+### ❌ NEVER Push:
+- `.env` - Contains your email password! (Auto-ignored)
+- `claude_desktop_config.json` - Has your specific paths (Auto-ignored)
+- `venv/` - Virtual environment folder (Auto-ignored)
+- `__pycache__/` - Python cache (Auto-ignored)
+
+The `.gitignore` file is already configured to protect sensitive files.
 
 ## 🐛 Troubleshooting
 

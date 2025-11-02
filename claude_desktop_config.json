@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "email-alert": {
+      "command": "python",
+      "args": [
+        "C:\\Users\\tejas\\OneDrive\\Desktop\\Email MCP server\\server.py"
+      ],
+      "env": {
+        "PYTHONPATH": "C:\\Users\\tejas\\OneDrive\\Desktop\\Email MCP server"
+      }
+    }
+  }
+}
